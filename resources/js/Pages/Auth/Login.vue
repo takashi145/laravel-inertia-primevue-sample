@@ -1,8 +1,6 @@
 <script setup>
-import { ref } from '@vue/reactivity';
 import Card from 'primevue/card';
 import InputText from 'primevue/inputtext';
-import Password from 'primevue/password';
 import Button from 'primevue/button';
 import { useForm } from '@inertiajs/inertia-vue3';
 const form = useForm({
@@ -41,7 +39,6 @@ const login = () => {
                 <Button type="submit" icon="pi pi-check" label="ログイン" />
             </div>
         </form>
-        
     </div>
   </div>
 </template>
