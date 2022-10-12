@@ -3,6 +3,11 @@ import Card from 'primevue/card';
 import InputText from 'primevue/inputtext';
 import Button from 'primevue/button';
 import { useForm } from '@inertiajs/inertia-vue3';
+
+const props = defineProps({
+  errors: Object
+})
+
 const form = useForm({
   email: '',
   password: ''
@@ -26,6 +31,9 @@ const login = () => {
                     </span>
                     <InputText v-model="form.email" type="email" placeholder="Email" />
                 </div>
+                <div v-if="errors.email" class="text-red-500">
+                  {{ errors.email }}
+                </div>
             </div>
             <div class="mb-5">
                 <div class="p-inputgroup">
@@ -33,6 +41,9 @@ const login = () => {
                         <i class="pi pi-key"></i>
                     </span>
                     <InputText v-model="form.password" type="password" placeholder="Password" />
+                </div>
+                <div v-if="errors.password" class="text-red-500">
+                  {{ errors.password }}
                 </div>
             </div>
             <div class="text-center">

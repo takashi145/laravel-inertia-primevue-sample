@@ -4,6 +4,10 @@ import InputText from 'primevue/inputtext';
 import Button from 'primevue/button';
 import { useForm, Link } from '@inertiajs/inertia-vue3';
 
+const props = defineProps({
+  errors: Object
+})
+
 const form = useForm({
   name: '',
   email: '',
@@ -27,7 +31,10 @@ const register = () => {
                     <span class="p-inputgroup-addon">
                         <i class="pi pi-user"></i>
                     </span>
-                    <InputText v-model="form.name" type="text" placeholder="Name" />
+                    <InputText v-model="form.name" id="name" type="text" placeholder="Name" />
+                </div>
+                <div v-if="errors.name" class="text-red-500">
+                  {{ errors.name }}
                 </div>
             </div>
             <div class="mb-5">
@@ -37,6 +44,9 @@ const register = () => {
                     </span>
                     <InputText v-model="form.email" type="email" placeholder="Email" />
                 </div>
+                <div v-if="errors.email" class="text-red-500">
+                  {{ errors.email }}
+                </div>
             </div>
             <div class="mb-5">
                 <div class="p-inputgroup">
@@ -45,6 +55,9 @@ const register = () => {
                     </span>
                     <InputText v-model="form.password" type="password" placeholder="Password" />
                 </div>
+                <div v-if="errors.password" class="text-red-500">
+                  {{ errors.password }}
+                </div>
             </div>
             <div class="mb-5">
                 <div class="p-inputgroup">
@@ -52,6 +65,9 @@ const register = () => {
                         <i class="pi pi-key"></i>
                     </span>
                     <InputText v-model="form.password_confirmation" type="password" placeholder="Confirm Password" />
+                </div>
+                <div v-if="errors.password_confirmation" class="text-red-500">
+                  {{ errors.password }}
                 </div>
             </div>
             <div class="text-center">
