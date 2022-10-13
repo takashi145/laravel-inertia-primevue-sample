@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use Inertia\Middleware;
 
 class HandleInertiaRequests extends Middleware
@@ -41,7 +42,7 @@ class HandleInertiaRequests extends Middleware
                 'message' => fn() => $request->session()->get('message'),
                 'alert' => fn() => $request->session()->get('alert')
             ],
-            'status' => fn() => $request->session()->get('status')
+            'status' => fn() => $request->session()->get('status'),
         ]);
     }
 }

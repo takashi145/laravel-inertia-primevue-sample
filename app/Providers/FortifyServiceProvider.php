@@ -66,7 +66,10 @@ class FortifyServiceProvider extends ServiceProvider
         });
 
         Fortify::resetPasswordView(function(Request $request) {
-            return Inertia::render('Auth/ResetPassword', ['request' => $request]);
+            return Inertia::render('Auth/ResetPassword', [
+                'email' => $request->email,
+                'token' => $request->route('token')
+            ]);
         });
     }
 }
