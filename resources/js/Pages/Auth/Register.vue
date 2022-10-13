@@ -24,7 +24,7 @@ const register = () => {
 
 <template>
   <GuestLayout>
-    <div class="m-8">
+    <div class="mt-8">
       <div class="card shadow p-7 col-12 md:col-10 lg:col-5 mx-auto">
           <h2 class="text-center mb-5">新規登録</h2>
           <form @submit.prevent="register">
