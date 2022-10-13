@@ -6,6 +6,7 @@ import Menubar from 'primevue/menubar';
 import Button from 'primevue/button';
 import Menu from 'primevue/menu';
 import Dropdown from 'primevue/dropdown';
+import Logo from '../Components/Logo.vue';
 
 const menu = ref()
 
@@ -17,9 +18,6 @@ const items = ref([
 ])
 
 const menu_items = ref([
-    {
-        label: 'MyPage'
-    },
     {
         label: 'Logout',
         command: () => {
@@ -40,9 +38,9 @@ const toggle = (event) => {
 
 <template>
   <div class="h-screen">
-    <header class="bg-surface-300 shadow flex justify-content-between">
+    <header class="surface-100 shadow flex justify-content-between">
       <div class="flex m-3">
-        <div class="text-xl font-bold mr-3">Logo</div>
+        <Logo />
         <div v-for="item in items" :key="item" class="mx-3 mt-1">
           <Link :href="item.url" class="text-700">{{ item.label }}</Link>
         </div>

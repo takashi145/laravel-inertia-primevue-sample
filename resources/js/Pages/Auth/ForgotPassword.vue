@@ -23,7 +23,7 @@ const submit = () => {
   <GuestLayout>
     <div class="m-8">
       <div class="card shadow p-7 col-12 md:col-10 lg:col-5 mx-auto">
-          <h2 class="text-center mb-5">パスワードをお忘れですか</h2>
+          <h2 class="text-center mb-5">パスワード再設定</h2>
 
           <div v-if="status" class="text-white bg-green-400 p-2 my-3 border-round">
               {{ status }}

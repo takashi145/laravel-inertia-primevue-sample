@@ -1,12 +1,12 @@
 <script setup>
 import { Link } from '@inertiajs/inertia-vue3';
-
+import Logo from '../Components/Logo.vue';
 </script>
 
 <template>
   <div class="h-screen">
     <header class="p-3 bg-surface-300 shadow flex justify-content-between">
-      <div class="text-xl">Logo</div>
+      <Logo />
       <div class="mx-3 mt-1">
         <Link href="/login" class="text-primary mr-3">ログイン</Link>
         <Link href="/register" class="text-primary">新規登録</Link>

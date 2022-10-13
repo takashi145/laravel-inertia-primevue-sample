@@ -59,5 +59,4 @@ const login = () => {
       </div>
     </div>
   </GuestLayout>
-  
 </template>
