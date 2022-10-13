@@ -1,8 +1,8 @@
 <script setup>
-import { Inertia } from '@inertiajs/inertia';
-import Button from 'primevue/button';
 import Menubar from 'primevue/menubar';
-import { Link } from '@inertiajs/inertia-vue3';
+import Button from 'primevue/button';
+import Dropdown from 'primevue/dropdown';
+import { Inertia } from '@inertiajs/inertia';
 
 const items = [
   {
@@ -12,13 +12,13 @@ const items = [
 ]
 
 const logout = () => {
-  Inertia.post("logout");
+  Inertia.post('/logout');
 }
 </script>
 
 <template>
-  <div>
-    <Menubar :model="items">
+  <div class="h-screen">
+    <Menubar :model="items" class="bg-surface-300 shadow">
       <template #start>
         <div class="text-xl">Logo</div>
       </template>
@@ -28,8 +28,13 @@ const logout = () => {
         </div>
       </template>
       <template #end>
-        <Button @Click="logout" class="mx-3">ログアウト</Button>
+        <Button @Click="logout()" class="mx-3">ログアウト</Button>
       </template>
     </Menubar>
+
+    <div class="p-4">
+      <slot />
+    </div>
+
   </div>
 </template>

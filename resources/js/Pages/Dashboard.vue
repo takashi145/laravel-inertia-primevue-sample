@@ -1,11 +1,10 @@
 <script setup>
-import Header from '../Components/Header.vue';
+import AppLayout from '../Layouts/AppLayout.vue';
 
 </script>
 
 <template>
-  <div>
-    <Header></Header>
+  <AppLayout>
     ダッシュボード
-  </div>
+  </AppLayout>
 </template>
