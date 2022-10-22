@@ -1,6 +1,6 @@
 <script setup>
 import { Inertia } from '@inertiajs/inertia';
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import { Link } from '@inertiajs/inertia-vue3';
 import Menubar from 'primevue/menubar';
 import Button from 'primevue/button';
@@ -16,6 +16,12 @@ const items = ref([
     url: '/dashboard'
   },
 ])
+
+const url = ref();
+
+onMounted(() => {
+  url.value = Inertia.page.url
+})
 
 const menu_items = ref([
     {
@@ -42,15 +48,17 @@ const toggle = (event) => {
       <div class="flex m-3">
         <Logo />
         <div v-for="item in items" :key="item" class="mx-3 mt-1">
-          <Link :href="item.url" class="text-700">{{ item.label }}</Link>
+          <Link :href="item.url" v-bind:class="{'border-bottom-2 border-blue-200':url == item.url}" class="text-700 hover:text-blue-300">{{ item.label }}</Link>
         </div>
       </div>
       
-      <Button @click="toggle" icon="pi pi-user" :label="$page.props.auth.user.name" iconPos="left" class="mx-3 p-button-text" aria-haspopup="true" aria-controls="overlay_menu" />
+      <div class="mt-2 mr-4">
+          <Button @click="toggle" icon="pi pi-user" class="p-button-rounded p-button-info p-button-text"></Button>
+      </div>
       <Menu id="overlay_menu" ref="menu" :model="menu_items" :popup="true">
         <template #item="{item}">
-          <div class="mt-1">
-            <Button v-if="item.command" @click="item.command" class="p-button-text">{{ item.label }}</Button>
+          <div class="my-2">
+            <Link v-if="item.command" @click="item.command" class="text-primary m-3">{{ item.label }}</Link>
             <Link v-else :href="item.url" class="m-3 p-1">{{ item.label }}</Link> 
           </div>
         </template>
