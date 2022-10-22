@@ -15,6 +15,10 @@ const items = ref([
     label: "Dashboard",
     url: '/dashboard'
   },
+  {
+    label: "投稿一覧",
+    url: '/posts'
+  },
 ])
 
 const url = ref();
