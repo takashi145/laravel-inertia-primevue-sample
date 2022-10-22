@@ -25,6 +25,12 @@ onMounted(() => {
 
 const menu_items = ref([
     {
+        label: 'My Page',
+        command: () => {
+          Inertia.get(`/user/${Inertia.page.props.auth.user.id}`)
+        }
+    },
+    {
         label: 'Logout',
         command: () => {
           logout()
@@ -58,7 +64,7 @@ const toggle = (event) => {
       <Menu id="overlay_menu" ref="menu" :model="menu_items" :popup="true">
         <template #item="{item}">
           <div class="my-2">
-            <Link v-if="item.command" @click="item.command" class="text-primary m-3">{{ item.label }}</Link>
+            <Link v-if="item.command" @click="item.command" class="text-gray-600 hover:text-blue-300 m-3">{{ item.label }}</Link>
             <Link v-else :href="item.url" class="m-3 p-1">{{ item.label }}</Link> 
           </div>
         </template>

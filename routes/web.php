@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -18,6 +19,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function() {
-    return Inertia::render('Dashboard');
+Route::middleware(['auth'])->group(function() {
+    Route::get('/dashboard', function() {
+        return Inertia::render('Dashboard');
+    });
+
+    Route::get('/user/{user}', [UserController::class, 'index']);
 });
+
