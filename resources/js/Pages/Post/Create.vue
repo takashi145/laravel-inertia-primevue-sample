@@ -23,7 +23,7 @@ const submit = () => {
   <AppLayout>
     <div class="m-4">
       <div>
-        <Link href="/posts" class="text-blue-400 hover:text-blue-500">一覧へ戻る</Link>
+        <Link :href="route('posts.index')" class="text-blue-400 hover:text-blue-500">一覧へ戻る</Link>
       </div>
       <form @submit.prevent="submit">
         <div class="card lg:col-6 mx-auto">

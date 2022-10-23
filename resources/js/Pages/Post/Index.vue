@@ -5,13 +5,14 @@ import Card from 'primevue/card';
 import Button from 'primevue/button'
 import { Link } from '@inertiajs/inertia-vue3';
 
+
 const props = defineProps([
   'posts',
 ])
 
-onMounted(() => {
-  console.log(props.posts)
-})
+// onMounted(() => {
+//   console.log(props.posts)
+// })
 
 </script>
 
@@ -19,11 +20,11 @@ onMounted(() => {
   <AppLayout>
     <div class="m-4">
       <div class="text-right">
-        <Link href="/posts/create" class="text-blue-400 hover:text-blue-500">作成画面へ</Link>
+        <Link :href="route('posts.create')" class="text-blue-400 hover:text-blue-500">作成画面へ</Link>
       </div>
       <ul>
         <li v-for="post in props.posts" :key="post.id">
-          {{ post.title }}<br>
+          <Link :href="route('posts.show', {id: post.id})">{{ post.title }}</Link>
         </li>
       </ul>
     </div>
