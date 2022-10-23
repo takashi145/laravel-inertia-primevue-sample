@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 use App\Models\Post;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 
 class PostController extends Controller
@@ -28,7 +30,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('Post/Create');
     }
 
     /**
@@ -39,7 +41,10 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
-        //
+        Auth::user()->posts()
+        ->create($request->only(['title', 'description']));
+
+        return Redirect::route('posts.index');
     }
 
     /**
