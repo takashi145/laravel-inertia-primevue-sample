@@ -31,7 +31,8 @@ const deletePost = () => {
           </div>
           <div class="">
             Description
-            <p class="border-2 p-2 border-round">{{ post.description }}</p>
+            <p v-if="post.description" class="border-2 p-2 border-round">{{ post.description }}</p>
+            <p v-else class="border-2 p-2 border-round text-600">詳細情報がありません。</p>
           </div>
           <div v-if="$page.props.auth.user.id === post.user_id" class="text-right mt-4">
             <Link :href="route('posts.edit', {id: post.id})" class="p-2">

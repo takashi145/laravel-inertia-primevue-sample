@@ -44,7 +44,7 @@ class PostController extends Controller
         Auth::user()->posts()
         ->create($request->only(['title', 'description']));
 
-        return Redirect::route('posts.index');
+        return Redirect::route('posts.index')->with('message', '投稿しました。');
     }
 
     /**
@@ -83,7 +83,7 @@ class PostController extends Controller
     public function update(UpdatePostRequest $request, Post $post)
     {
         $post->update($request->only(['title', 'description']));
-        return Redirect::route('posts.index');
+        return Redirect::route('posts.index')->with('message', '更新しました。');;
     }
 
     /**
@@ -95,6 +95,6 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         $post->delete();
-        return Redirect::route('posts.index');
+        return Redirect::route('posts.index')->with('alert', '削除しました。');;
     }
 }

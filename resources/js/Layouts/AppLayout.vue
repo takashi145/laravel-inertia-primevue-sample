@@ -7,6 +7,7 @@ import Button from 'primevue/button';
 import Menu from 'primevue/menu';
 import Dropdown from 'primevue/dropdown';
 import Logo from '../Components/Logo.vue';
+import Message from 'primevue/message';
 
 const menu = ref()
 
@@ -75,6 +76,9 @@ const toggle = (event) => {
       </Menu>
     </header>
 
+    <Message v-if="this.$page.props.flash.message" severity="success">{{ this.$page.props.flash.message }}</Message>
+    <Message v-if="this.$page.props.flash.alert" severity="error">{{ this.$page.props.flash.alert }}</Message>
+    
     <div class="p-4">
       <slot />
     </div>
