@@ -68,7 +68,9 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        return Inertia::render('Post/Edit', [
+            'post' => $post,
+        ]);
     }
 
     /**
@@ -80,7 +82,8 @@ class PostController extends Controller
      */
     public function update(UpdatePostRequest $request, Post $post)
     {
-        //
+        $post->update($request->only(['title', 'description']));
+        return Redirect::route('posts.index');
     }
 
     /**
