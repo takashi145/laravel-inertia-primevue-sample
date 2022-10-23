@@ -25,13 +25,13 @@ onMounted(() => {
             {{ post.description }}
           </p>
           <div class="text-right">
-            <Link :href="route('posts.show', {id: post.id})" class="text-blue-400 hover:text-blue-500">
+            <Link :href="`/posts/${post.id}`" class="text-blue-400 hover:text-blue-500">
               詳細
             </Link>
           </div>
         </Fieldset>
       </div>
-      <Link :href="route('posts.create')" class="text-blue-400 hover:text-blue-500">
+      <Link href="/posts/create" class="text-blue-400 hover:text-blue-500">
           <Button icon="pi pi-pencil" class="fixed bottom-0 right-0 m-4 p-button-rounded p-button-primary p-5"></Button>
       </Link>
     </div>

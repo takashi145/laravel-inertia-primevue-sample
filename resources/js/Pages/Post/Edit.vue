@@ -16,7 +16,7 @@ const form = useForm({
 });
 
 const submit = () => {
-  form.put(route('posts.update', {id: props.post.id}))
+  form.put(`/posts/${props.post.id}`)
 }
 </script>
 
@@ -24,7 +24,7 @@ const submit = () => {
   <AppLayout>
     <div class="m-4">
       <div>
-        <Link :href="route('posts.show', {id: post.id})" class="text-blue-400 hover:text-blue-500">詳細へ戻る</Link>
+        <Link :href="`/posts/${post.id}`" class="text-blue-400 hover:text-blue-500">詳細へ戻る</Link>
       </div>
       <form @submit.prevent="submit">
         <div class="card lg:col-6 mx-auto">
