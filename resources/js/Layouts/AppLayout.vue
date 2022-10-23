@@ -13,20 +13,14 @@ const menu = ref()
 
 const items = ref([
   {
-    label: "Dashboard",
-    url: '/dashboard'
+    label: "Home",
+    url: '/'
   },
   {
     label: "投稿一覧",
     url: '/posts'
   },
 ])
-
-const url = ref();
-
-onMounted(() => {
-  url.value = Inertia.page.url
-})
 
 const menu_items = ref([
     {
@@ -59,7 +53,7 @@ const toggle = (event) => {
       <div class="flex m-3">
         <Logo />
         <div v-for="item in items" :key="item" class="mx-3 mt-1">
-          <Link :href="item.url" v-bind:class="{'border-bottom-2 border-blue-200':url == item.url}" class="text-700 hover:text-blue-300">{{ item.label }}</Link>
+          <Link :href="item.url" v-bind:class="{'border-bottom-2 border-blue-200':$page.url == item.url}" class="text-700 hover:text-blue-300">{{ item.label }}</Link>
         </div>
       </div>
       

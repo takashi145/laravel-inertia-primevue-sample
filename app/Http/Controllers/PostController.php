@@ -11,6 +11,12 @@ use Inertia\Inertia;
 
 class PostController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('can:update,post')->only('edit', 'update');
+        $this->middleware('can:delete,post')->only('destroy');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -19,7 +25,7 @@ class PostController extends Controller
     public function index()
     {
         return Inertia::render('Post/Index', [
-            'posts' => Post::select('id', 'title', 'updated_at')->get()
+            'posts' => Post::all()
         ]);
     }
 
