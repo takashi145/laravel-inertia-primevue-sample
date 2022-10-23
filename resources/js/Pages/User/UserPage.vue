@@ -6,15 +6,18 @@ const props = defineProps([
   'user'
 ])
 
-onMounted(() => {
-  console.log(props.user)
-})
-
-
 </script>
 
 <template>
   <AppLayout>
-    ユーザー: {{ props.user.name }}
+    <div v-if="user.id === $page.props.auth.user.id" class="text-xl mb-3">
+      マイページ
+    </div>
+    <div v-else class="text-xl mb-3">
+      {{ user.name }}のユーザページ
+    </div>
+    <div class="m-4">
+      ユーザー名: {{ user.name }}
+    </div>
   </AppLayout>
 </template>

@@ -16,17 +16,15 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function() {
+    return Inertia::render('Welcome');
 });
 
 Route::middleware(['auth'])->group(function() {
-    Route::get('/', function() {
+    Route::get('/home', function() {
         return Inertia::render('Home');
     });
-
     Route::get('/user/{user}', [UserController::class, 'index']);
-
     Route::resource('posts', PostController::class);
 });
 

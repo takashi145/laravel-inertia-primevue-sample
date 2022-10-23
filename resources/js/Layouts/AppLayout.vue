@@ -14,7 +14,7 @@ const menu = ref()
 const items = ref([
   {
     label: "Home",
-    url: '/'
+    url: '/home'
   },
   {
     label: "投稿一覧",

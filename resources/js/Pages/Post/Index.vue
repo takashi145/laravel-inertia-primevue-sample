@@ -19,7 +19,7 @@ onMounted(() => {
 <template>
   <AppLayout>
     <div class="m-4">
-      <div>
+      <div class="lg:col-8 mx-auto">
         <Fieldset :legend="post.title" v-for="post in props.posts" :key="post.id" class="mb-3">
           <p>
             {{ post.description }}
