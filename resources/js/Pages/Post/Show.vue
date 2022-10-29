@@ -2,7 +2,6 @@
 import AppLayout from '../../Layouts/AppLayout.vue';
 import { ref } from 'vue';
 import { Link } from '@inertiajs/inertia-vue3';
-import Button from 'primevue/button';
 import { Inertia } from '@inertiajs/inertia';
 import Dialog from 'primevue/dialog';
 

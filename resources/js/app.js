@@ -5,6 +5,7 @@ import { createApp, h } from 'vue'
 import { createInertiaApp } from '@inertiajs/inertia-vue3'
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers'
 import PrimeVue from 'primevue/config';
+import Button from 'primevue/button'
 
 createInertiaApp({
   resolve: (name) => resolvePageComponent(`./Pages/${name}.vue`, import.meta.glob('./Pages/**/*.vue')),
@@ -12,6 +13,7 @@ createInertiaApp({
     createApp({ render: () => h(App, props) })
       .use(plugin)
       .use(PrimeVue)
+      .component('Button', Button)
       .mount(el)
   },
 })

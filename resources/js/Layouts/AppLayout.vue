@@ -13,7 +13,7 @@ const menu = ref()
 
 const items = ref([
   {
-    label: "Home",
+    label: "ホーム",
     url: '/home'
   },
   {

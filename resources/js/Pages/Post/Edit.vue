@@ -2,7 +2,6 @@
 import AppLayout from '../../Layouts/AppLayout.vue';
 import { ref } from 'vue';
 import Textarea from 'primevue/textarea';
-import Button from 'primevue/button';
 import { useForm, Link } from '@inertiajs/inertia-vue3';
 
 const props = defineProps({

@@ -9,8 +9,11 @@ use Inertia\Inertia;
 
 class UserController extends Controller
 {
-    public function index(User $user)
+    public function index($id)
     {
-        return Inertia::render('User/UserPage', ['user' => $user]);
+        $user = User::with('posts')->findOrFail($id);
+        return Inertia::render('User/UserPage', [
+            'user' => $user,
+        ]);
     }
 }

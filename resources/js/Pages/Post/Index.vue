@@ -1,7 +1,6 @@
 <script setup>
 import AppLayout from '../../Layouts/AppLayout.vue';
 import Card from 'primevue/card';
-import Button from 'primevue/button'
 import { Link } from '@inertiajs/inertia-vue3';
 import Fieldset from 'primevue/fieldset';
 import { onMounted } from '@vue/runtime-core';
@@ -21,6 +20,10 @@ onMounted(() => {
     <div class="m-4">
       <div class="lg:col-8 mx-auto">
         <Fieldset :legend="post.title" v-for="post in props.posts" :key="post.id" class="mb-3">
+          <div class="text-right text-xl">
+            投稿者：
+            <Link :href="`/user/${post.user.id}`" class="text-indigo-500 hover:text-indigo-600 cursor-pointer">{{ post.user.name }}</Link>
+          </div>
           <p>
             {{ post.description }}
           </p>

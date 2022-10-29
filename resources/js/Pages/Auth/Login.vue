@@ -1,7 +1,6 @@
 <script setup>
 import Card from 'primevue/card';
 import InputText from 'primevue/inputtext';
-import Button from 'primevue/button';
 import { useForm, Link } from '@inertiajs/inertia-vue3';
 import GuestLayout from '../../Layouts/GuestLayout.vue';
 

@@ -8,7 +8,7 @@ const visible = ref(false)
 <template>
   <AppLayout>
     <div class="m-4">
-      <h3>ログイン成功!!</h3>
+      <h2>ログイン済み</h2>
     </div>
   </AppLayout>
 </template>
